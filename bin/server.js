@@ -13,7 +13,7 @@ const messageListener = (message) => {
   const data = message instanceof ArrayBuffer ? message : message.buffer;
   const decodedMessage = decoder.decode(data);
 
-  let memoryDoc = Y.createDocFromSnapshot(decodedMessage);
+  let memoryDoc = Y.applyUpdate({}, decodedMessage);
 
   console.log(memoryDoc.toJSON());
 };
