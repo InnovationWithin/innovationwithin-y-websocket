@@ -31,9 +31,9 @@ server.on('upgrade', (request, socket, head) => {
   /**
    * @param {any} ws
    */
-  const handleAuth = ws => {
-    wss.emit('connection', ws, request)
-    wss.on('message', messageListener)
+  const handleAuth = (ws) => {
+    wss.on('message', messageListener);
+    wss.emit('connection', ws, request);
   }
   wss.handleUpgrade(request, socket, head, handleAuth)
 })
