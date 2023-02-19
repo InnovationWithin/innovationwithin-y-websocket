@@ -10,7 +10,7 @@ const messageListener = (message) => {
   const decoder = new TextDecoder();
 
   // Check if the data is an array buffer
-  const data = message.data instanceof ArrayBuffer ? message.data : message.data.buffer;
+  const data = message instanceof ArrayBuffer ? message : message.buffer;
   const decodedMessage = decoder.decode(data);
 
   let memoryDoc = Y.createDoc().extend('{}', decoedMessage);
