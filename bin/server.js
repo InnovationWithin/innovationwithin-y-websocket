@@ -36,10 +36,10 @@ server.on('upgrade', (request, socket, head) => {
   const handleAuth = ws => {
    
   wss.emit('connection', ws, request);
+
+  ws.on('message', messageListener);
   }
   wss.handleUpgrade(request, socket, head, handleAuth)
-
-  wss.on('message', messageListener);
 })
 
 server.listen(port, host, () => {
