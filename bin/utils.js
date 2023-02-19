@@ -175,7 +175,7 @@ const messageListener = (conn, doc, message) => {
         if (encoding.length(encoder) > 1) {
           send(doc, conn, encoding.toUint8Array(encoder))
           console.log(doc.name);
-          console.log(doc.share.doc);
+          console.log(JSON.stringify(doc.share));
         }
         break
       case messageAwareness: {
