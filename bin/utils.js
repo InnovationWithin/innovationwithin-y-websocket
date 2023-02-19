@@ -169,7 +169,7 @@ const messageListener = (conn, doc, message) => {
         encoding.writeVarUint(encoder, messageSync)
         syncProtocol.readSyncMessage(decoder, encoder, doc, null)
 
-        console.log(doc);
+        console.log(Object.keys(docs));
 
         // If the `encoder` only contains the type of reply message and no
         // message, there is no need to send the message. When `encoder` only
