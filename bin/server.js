@@ -13,9 +13,11 @@ const messageListener = (message) => {
   const data = message instanceof ArrayBuffer ? message : message.buffer;
   const decodedMessage = decoder.decode(data);
 
-  let memoryDoc = Y.applyUpdate({}, decodedMessage);
+  
 
-  console.log(memoryDoc.toJSON());
+  //let memoryDoc = Y.applyUpdate({}, decodedMessage);
+
+  console.log(decodedMessage);
 };
 
 const server = http.createServer((request, response) => {
