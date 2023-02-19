@@ -4,7 +4,7 @@ const wss = new WebSocket.Server({ noServer: true })
 const setupWSConnection = require('./utils.js').setupWSConnection
 const Y = require('yjs');
 const host = process.env.HOST || 'localhost'
-const port = process.env.PORT || 1234
+const port = process.env.PORT || 8076
 
 const messageListener = (message) => {
   const decoder = new TextDecoder();
@@ -26,16 +26,20 @@ const server = http.createServer((request, response) => {
 wss.on('connection', setupWSConnection)
 
 server.on('upgrade', (request, socket, head) => {
+
+  console.log('setup client listener')
   // You may check auth of request here..
   // See https://github.com/websockets/ws#client-authentication
   /**
    * @param {any} ws
    */
-  const handleAuth = (ws) => {
-    wss.on('message', messageListener);
-    wss.emit('connection', ws, request);
+  const handleAuth = ws => {
+   
+  wss.emit('connection', ws, request);
   }
   wss.handleUpgrade(request, socket, head, handleAuth)
+
+  wss.on('message', messageListener);
 })
 
 server.listen(port, host, () => {
