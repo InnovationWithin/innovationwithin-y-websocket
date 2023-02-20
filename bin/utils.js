@@ -174,8 +174,8 @@ const messageListener = (conn, doc, message) => {
         // contains the type of reply, its length is 1.
         if (encoding.length(encoder) > 1) {
           send(doc, conn, encoding.toUint8Array(encoder))
-          console.log(doc.name);
-          console.log(JSON.stringify(encoding.toUint8Array(encoder)));
+          //console.log(doc.name);
+          //console.log(JSON.stringify(encoding.toUint8Array(encoder)));
         }
         break
       case messageAwareness: {

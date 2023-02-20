@@ -7,17 +7,17 @@ const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || 8076
 
 const messageListener = (message) => {
-  const decoder = new TextDecoder();
+  //const decoder = new TextDecoder();
 
   // Check if the data is an array buffer
-  const data = message instanceof ArrayBuffer ? message : message.buffer;
-  const decodedMessage = decoder.decode(data);
+  //const data = message instanceof ArrayBuffer ? message : message.buffer;
+  //const decodedMessage = decoder.decode(data);
 
   
 
   //let memoryDoc = Y.applyUpdate({}, decodedMessage);
 
-  console.log(decodedMessage);
+  //console.log(decodedMessage);
 };
 
 const server = http.createServer((request, response) => {
